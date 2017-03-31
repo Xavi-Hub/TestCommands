@@ -13,7 +13,13 @@ public class RopeClimber extends Subsystem {
 	
 	Spark motorGearHolder = new Spark(2);
 	
+	public void turn() {
+		motorGearHolder.setSpeed(-1); //towards forward
+	}
 	
+	public void stop() {
+		motorGearHolder.setSpeed(0);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

@@ -1,16 +1,14 @@
 package org.usfirst.frc.team6672.robot.commands;
 
-
 /**
  *
  */
-public class AutonomousDriving extends CommandBase {
+public class TurnRopeClimber extends CommandBase {
 
-    public AutonomousDriving() {
+    public TurnRopeClimber() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(driveMechanism);
-    	setTimeout(3);
+    	requires(ropeClimber);
     }
 
     // Called just before this Command runs the first time
@@ -19,17 +17,17 @@ public class AutonomousDriving extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveMechanism.drive(.5, driveMechanism.getGyroAngle()*0.03*.35);
+    	ropeClimber.turn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	driveMechanism.drive(0, 0);
+    	ropeClimber.stop();
     }
 
     // Called when another command which requires one or more of the same

@@ -6,11 +6,14 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
 
 import org.usfirst.frc.team6672.robot.commands.CloseGearHolderContinued;
 import org.usfirst.frc.team6672.robot.commands.CloseGearHolderOnce;
+import org.usfirst.frc.team6672.robot.commands.DriveSpeed10;
+import org.usfirst.frc.team6672.robot.commands.DriveSpeed8;
 import org.usfirst.frc.team6672.robot.commands.OpenGearHolderContinued;
 import org.usfirst.frc.team6672.robot.commands.OpenGearHolderOnce;
 import org.usfirst.frc.team6672.robot.commands.RotateSpeed10;
 import org.usfirst.frc.team6672.robot.commands.RotateSpeed6;
 import org.usfirst.frc.team6672.robot.commands.RotateSpeed7;
+import org.usfirst.frc.team6672.robot.commands.TurnRopeClimber;
 import org.usfirst.frc.team6672.robot.triggers.AutoGearClose;
 import org.usfirst.frc.team6672.robot.triggers.AutoGearOpen;
 import org.usfirst.frc.team6672.robot.triggers.ManualGearClose;
@@ -98,6 +101,9 @@ public class OI {
 		button3.whenPressed(new RotateSpeed6());
 		button2.whenPressed(new RotateSpeed7());
 		button1.whenPressed(new RotateSpeed10());
+		button4.whileHeld(new TurnRopeClimber());
+		button5.whenPressed(new DriveSpeed8());
+		button6.whenPressed(new DriveSpeed10());
 		
 	}
 	

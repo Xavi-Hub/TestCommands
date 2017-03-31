@@ -34,7 +34,7 @@ public class Robot extends IterativeRobot {
 //		oi = new OI(); 
 //		driveMechanism = new DriveMechanism();
 //		gearHolder = new GearHolder();
-		chooser.addDefault("Default Auto", new NormalDriving());
+		chooser.addDefault("Default Auto", new AutonomousDriving());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
