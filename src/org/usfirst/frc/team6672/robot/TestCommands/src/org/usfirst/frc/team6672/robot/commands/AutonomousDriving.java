@@ -1,15 +1,17 @@
 package org.usfirst.frc.team6672.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6672.robot.Robot;
 
 /**
  *
  */
-public class AutonomousDriving extends CommandBase {
+public class AutonomousDriving extends Command {
 
     public AutonomousDriving() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(driveMechanism);
+    	requires(Robot.driveMechanism);
     	setTimeout(3);
     }
 
@@ -19,7 +21,7 @@ public class AutonomousDriving extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveMechanism.drive(.5, driveMechanism.getGyroAngle()*0.03*.35);
+    	Robot.driveMechanism.drive(.5, Robot.driveMechanism.getGyroAngle()*0.03*.35);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -29,7 +31,7 @@ public class AutonomousDriving extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	driveMechanism.drive(0, 0);
+    	Robot.driveMechanism.drive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

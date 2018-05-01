@@ -1,10 +1,12 @@
 package org.usfirst.frc.team6672.robot.commands;
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6672.robot.Robot;
 
 
 /**
  *
  */
-public class RotateSpeed10 extends CommandBase {
+public class RotateSpeed10 extends Command {
 
     public RotateSpeed10() {
         // Use requires() here to declare subsystem dependencies
@@ -13,7 +15,7 @@ public class RotateSpeed10 extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	driveMechanism.setRotateSpeed(1);
+    	Robot.driveMechanism.setRotateSpeed(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +24,7 @@ public class RotateSpeed10 extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

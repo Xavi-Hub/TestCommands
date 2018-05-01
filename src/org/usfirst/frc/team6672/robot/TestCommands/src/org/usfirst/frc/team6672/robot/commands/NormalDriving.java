@@ -1,15 +1,17 @@
 package org.usfirst.frc.team6672.robot.commands;
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6672.robot.Robot;
 
 
 /**
  *
  */
-public class NormalDriving extends CommandBase {
+public class NormalDriving extends Command {
 
     public NormalDriving() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(driveMechanism);
+    	requires(Robot.driveMechanism);
     	
     }
 
@@ -19,7 +21,7 @@ public class NormalDriving extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveMechanism.arcadeDrive();
+    	Robot.driveMechanism.arcadeDrive();
     }
 
     // Make this return true when this Command no longer needs to run execute()

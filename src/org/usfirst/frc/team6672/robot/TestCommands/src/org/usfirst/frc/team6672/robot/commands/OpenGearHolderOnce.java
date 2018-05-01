@@ -1,16 +1,18 @@
 package org.usfirst.frc.team6672.robot.commands;
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6672.robot.Robot;
 
 
 
 /**
  *
  */
-public class OpenGearHolderOnce extends CommandBase {
+public class OpenGearHolderOnce extends Command {
 
     public OpenGearHolderOnce() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(gearHolder);
+    	requires(Robot.gearHolder);
     	setTimeout(1.5);
     }
 
@@ -20,7 +22,7 @@ public class OpenGearHolderOnce extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	gearHolder.open();
+    	Robot.gearHolder.open();
     	
     }
 
@@ -31,7 +33,7 @@ public class OpenGearHolderOnce extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	gearHolder.stop();
+    	Robot.gearHolder.stop();
     }
 
     // Called when another command which requires one or more of the same

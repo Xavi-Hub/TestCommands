@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6672.robot.commands.*;
+import org.usfirst.frc.team6672.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -17,6 +18,12 @@ import org.usfirst.frc.team6672.robot.commands.*;
  * directory.
  */
 public class Robot extends IterativeRobot {
+	public static DriveMechanism driveMechanism = new DriveMechanism();
+    public static GearHolder gearHolder = new GearHolder();
+    public static RopeClimber ropeClimber = new RopeClimber();
+    
+    public static OI oi;
+
 
 //	public static DriveMechanism driveMechanism;
 //	public static GearHolder gearHolder;
@@ -31,12 +38,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-//		oi = new OI(); 
+		oi = new OI(); 
 //		driveMechanism = new DriveMechanism();
 //		gearHolder = new GearHolder();
-		chooser.addDefault("Default Auto", new AutonomousDriving());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -67,7 +72,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -77,8 +81,6 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
 	}
 
 	/**
@@ -91,12 +93,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+
 	}
 
 	/**

@@ -53,14 +53,14 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	Joystick stick = new Joystick(1);
-	Button button1 = new JoystickButton(stick, 1);
-	Button button2 = new JoystickButton(stick, 2);
-	Button button3 = new JoystickButton(stick, 3);
-	Button button4 = new JoystickButton(stick, 4);
-	Button button5 = new JoystickButton(stick, 5);
-	Button button6 = new JoystickButton(stick, 6);
-	Button button7 = new JoystickButton(stick, 7);
+	Joystick stick = new Joystick(0);
+	Button A = new JoystickButton(stick, 1);
+	Button B = new JoystickButton(stick, 2);
+	Button X = new JoystickButton(stick, 3);
+	Button Y = new JoystickButton(stick, 4);
+	Button LB = new JoystickButton(stick, 5);
+	Button RB = new JoystickButton(stick, 6);
+	Button SELECT = new JoystickButton(stick, 7);
 	
 	Trigger autoGearOpen = new AutoGearOpen();
 	Trigger autoGearClose = new AutoGearClose();
@@ -86,11 +86,11 @@ public class OI {
 	}
 	
 	public boolean manualGearOpenActivated() {
-		return button7.get() && stick.getRawAxis(3) > .5 ;
+		return SELECT.get() && stick.getRawAxis(3) > .5 ;
 	}
 	
 	public boolean manualGearCloseActivated() {
-		return button7.get() && stick.getRawAxis(2) > .5 ;
+		return SELECT.get() && stick.getRawAxis(2) > .5 ;
 	}
 	
 	public OI(){
@@ -98,12 +98,12 @@ public class OI {
 		autoGearClose.whenActive(new CloseGearHolderOnce());
 		manualGearOpen.whileActive(new OpenGearHolderContinued());
 		manualGearClose.whileActive(new CloseGearHolderContinued());
-		button3.whenPressed(new RotateSpeed6());
-		button2.whenPressed(new RotateSpeed7());
-		button1.whenPressed(new RotateSpeed10());
-		button4.whileHeld(new TurnRopeClimber());
-		button5.whenPressed(new DriveSpeed8());
-		button6.whenPressed(new DriveSpeed10());
+		X.whenPressed(new RotateSpeed6());
+		A.whenPressed(new RotateSpeed7());
+		B.whenPressed(new RotateSpeed10());
+		Y.whileHeld(new TurnRopeClimber());
+		LB.whenPressed(new DriveSpeed8());
+		RB.whenPressed(new DriveSpeed10());
 		
 	}
 	
